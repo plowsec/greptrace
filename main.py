@@ -10,7 +10,7 @@ logging.basicConfig(level=logging.DEBUG)
 
 LANGUAGE_EXTENSIONS = [".java", ".jsp"]
 
-def pwn(webxml_path, source_dir, pattern="getWhere", restrict_to_file="EPODirSortServices.java", concatenation_only=False, depth=3, max_patterns=5, extensive=False, max_results=10):
+def pwn(webxml_path, source_dir, pattern="getWhere", restrict_to_file="", concatenation_only=False, depth=3, max_patterns=5, extensive=False, max_results=10):
 
     endpoints_standard = j2ee_attack_surface.parse(webxml_path)
     endpoints_beans = j2ee_attack_surface.parse_beans(webxml_path)

@@ -233,7 +233,7 @@ def build_callstack(folder_path, pattern="getWhere", restrict_to_file="", concat
 
     all_files = get_translation_units(os.path.abspath(folder_path))
     files = find_file_containing_string(pattern, all_files, concatenation_only=concatenation_only)
-    logging.info("Warning: debug on, only EPODirSortServices is analyzed")
+    logging.info("Warning: debug on, only one file is analyzed")
 
     chains = []
     for file in files[:max_results]:
