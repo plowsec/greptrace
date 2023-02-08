@@ -3,7 +3,7 @@ from os.path import isfile, getmtime, join
 import os
 import sys
 import logging
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from copy import deepcopy
 logging.basicConfig(level=logging.DEBUG)
 import re
@@ -12,12 +12,12 @@ import re
 class Chain:
 
     stack = []
-    usages = {} # dict, keys are levels in the call stack tree, values are list of files containing the pattern
+    usages: dict = field(default_factory=dict) # keys are levels in the call stack tree, values are list of files containing the pattern
     current_pattern = ""
     depth= 0
     reachable = False
-    source_params = set()
-    source_functions = set()
+    source_params: dict = field(default_factory=set)
+    source_functions: dict = field(default_factory=set)
 
 
     def __str__(self):
